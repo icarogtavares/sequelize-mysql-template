@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var helmet = require('helmet');
 
+var routes = require('./routes');
+
 var app = express();
 
 app.use(helmet());
@@ -25,8 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//rotas
-require('./routes/')(app);
+app.use('/', routes);
 
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
