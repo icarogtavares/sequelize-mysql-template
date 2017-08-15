@@ -5,7 +5,9 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true
+        notEmpty: true,
+        is: ["^[a-z]+$",'i'],
+        len: [1,30]
       }
     },
     email: {
@@ -20,14 +22,16 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true
+        notEmpty: true,
+        is: ["^[a-z]+$",'i'],
       }
     },
     last_name: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true
+        notEmpty: true,
+        is: ["^[a-z]+$",'i'],
       }
     }
   }, {
