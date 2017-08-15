@@ -1,9 +1,10 @@
 var usersRouter = require('./users');
+var router = express.Router();
 
-module.exports = (app) => {
-  app.get('/', function(req, res, next) {
-    res.render('index', { title: 'Welcome' });
-  });
+router.get('/', function(req, res, next) {
+  res.render('index', { title: 'Welcome' });
+});
 
-  app.use('/users/', usersRouter);
-}
+router.use('/users/', usersRouter);
+
+module.exports = router;
